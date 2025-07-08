@@ -1,0 +1,179 @@
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../public/fonts/TTNormsPro-Regular.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../public/fonts/TTNormsPro-Medium.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../public/fonts/TTNormsPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bookmania";
+  src: url("../public/fonts/Fontspring-DEMO-bookmania-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --header-font: "Bookmania", sans-serif;
+  --primary-font: "TTNormsPro", sans-serif;
+
+  --primary-color: #58BABB;
+  --secondary-color: #003E75;
+  --text: #222822;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--primary-font);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--header-font);
+  color: var(--secondary-color);
+}
+
+p, a {
+  font-family: var(--primary-font);
+  font-weight: 500;
+}
+
+nav {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 24px -7px rgba(0, 0, 0, 0.25);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 90px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-links a {
+  margin: 6px 10px;
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+.nav-links a:hover path {
+  fill: var(--primary-color);
+}
+
+.nav-item .dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  min-width: 120px;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
+
+.nav-item .dropdown a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-item .dropdown a:hover {
+  background: #f0f0f0;
+}
+
+.search-bar {
+  display: block;
+}
+
+.search-bar input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icons i {
+  cursor: pointer;
+}
+
+
+/* desktop to mobile Styles */
+@media (max-width: 1040px) {
+  .nav-links,
+  .search-bar {
+    display: none;
+  }
+
+  .mobile-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .logo {
+    order: 2;
+  }
+
+  .mobile-left,
+  .icons {
+    order: 2;
+  }
+
+  nav {
+    justify-content: space-between;
+    padding: 20px 20px;
+  }
+}
+
+/* @media (max-width: 768px) {
+  
+) */
