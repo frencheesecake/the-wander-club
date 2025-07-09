@@ -34,9 +34,11 @@
   --header-font: "Bookmania", sans-serif;
   --primary-font: "TTNormsPro", sans-serif;
 
-  --primary-color: #58BABB;
+  --primary-color: #029C9F;
   --secondary-color: #003E75;
   --text: #222822;
+
+  --red: #8C1F22;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -61,10 +63,25 @@ h1, h2, h3, h4, h5 {
 
 p, a {
   font-family: var(--primary-font);
-  font-weight: 500;
+  font-weight: 400;
+  color: var(--text);
 }
 
 nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .banner {
+  background-color: var(--red);
+  color: white;
+  padding: 12px 0px;
+  text-align: center;
+}
+nav .nav-container {
+  width: 100%;
   padding: 20px 50px;
   display: flex;
   justify-content: space-between;
@@ -91,6 +108,7 @@ nav {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
+  transition: 200ms all ease-in-out;
 }
 
 .nav-links a:hover {
@@ -125,14 +143,32 @@ nav {
   background: #f0f0f0;
 }
 
-.search-bar {
-  display: block;
+.right {
+  display: flex;
 }
 
-.search-bar input {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+.search-bar {
+  display: block;
+  width: 310px;
+  margin-right: 24px;
+  position: relative;
+}
+.search-bar svg {
+  position: absolute;
+  right: 10px;
+  transform: translateY(30%);
+  cursor: pointer;
+}
+.search-bar input[type=text] {
+  width: 100%;
+  padding: 10px;
+  padding-right: 44px;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+}
+
+.search-bar input[type=text]:focus {
+  outline: none;
 }
 
 .icons {
@@ -145,6 +181,26 @@ nav {
   cursor: pointer;
 }
 
+.hero {
+  padding-top: 102px;
+}
+
+.bg-desktop {
+  display: block;
+}
+
+.bg-desktop img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.bg-mobile {
+  display: none;
+}
+.bg-mobile img {
+  width: 100%;
+  object-fit: contain;
+}
 
 /* desktop to mobile Styles */
 @media (max-width: 1040px) {
@@ -164,16 +220,26 @@ nav {
   }
 
   .mobile-left,
-  .icons {
+  .right {
     order: 2;
   }
 
-  nav {
+  nav .nav-container {
     justify-content: space-between;
     padding: 20px 20px;
   }
 }
 
-/* @media (max-width: 768px) {
-  
-) */
+@media (max-width: 768px) {
+  nav .banner {
+    font-size: 14px;
+  }
+
+  .bg-mobile {
+    display: block;
+  }
+
+  .bg-desktop {
+    display: none;
+  }
+}
