@@ -19,29 +19,13 @@
 
       <!-- Center Nav Links -->
       <div class="nav-links">
-        <div class="nav-item">
+        <div class="nav-item" id="tokensNavItem">
           <a href="#" style="display: inline-flex; align-items: center; gap: 4px;">
             Tokens
             <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.5 5L0.602887 0.499999L8.39711 0.5L4.5 5Z" fill="black"/>
             </svg>
             </a>
-          <div class="dropdown">
-            <div class="overlay"></div>
-            <div class="dropdown-container">
-              <div class="menu-list">
-                <div class="menu-header">
-                  <h1>Collections</h1>
-                </div>
-                <div class="menu-body" id="menuBody">
-                </div>
-              </div>
-              <div class="divider"></div>
-              <div class="menu-list"></div>
-            </div>
-            <a href="#">Token 1</a>
-            <a href="#">Token 2</a>
-          </div>
         </div>
         <a href="#">Token Holder</a>
         <a href="#">Merch</a>
@@ -71,5 +55,31 @@
         </div>
       </div>
    </div>
-  
+  <div class="dropdown" id="tokensDropdown">
+    <div class="overlay"></div>
+    <div class="dropdown-container">
+      <div class="menu-list">
+        <div class="menu-header">
+          <h1>Collections</h1>
+        </div>
+        <div class="menu-grid" id="menuGrid">
+          <!-- this is where the dynamic content will be inserted -->
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="menu-list">
+        <div class="menu-header">
+          <h1>Customizable</h1>
+        </div>
+        <div class="menu-body">
+          <div class="item">
+            <span>⛴️</span>
+            <span>Transportation</span>
+            <img src="../public/icons/chevron-down.png" style="width: 16px;" alt="">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>

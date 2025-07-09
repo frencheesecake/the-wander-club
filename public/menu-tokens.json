@@ -1,0 +1,62 @@
+[
+  {
+    "image_file": "mexico.png",
+    "title": "Countries",
+    "token_count": 230
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "National Park",
+    "token_count": 60
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Italy",
+    "token_count": 45
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Spain",
+    "token_count": 30
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "France",
+    "token_count": 25
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Germany",
+    "token_count": 20
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Italy",
+    "token_count": 45
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Spain",
+    "token_count": 30
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "France",
+    "token_count": 25
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Germany",
+    "token_count": 20
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Italy",
+    "token_count": 45
+  },
+  {
+    "image_file": "mexico.png",
+    "title": "Spain",
+    "token_count": 30
+  }
+]

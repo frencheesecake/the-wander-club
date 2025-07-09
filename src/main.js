@@ -1,59 +1,31 @@
-function includeHTML() {
+async function includeHTML() {
   const elements = document.querySelectorAll('[data-include]');
-  elements.forEach(el => {
+  
+  for (const el of elements) {
     const file = el.getAttribute('data-include');
-    fetch(file)
-      .then(res => {
-        if (!res.ok) throw new Error("Failed to fetch ${file}");
-        return res.text();
-      })
-      .then(data => {
-        el.innerHTML = data;
-      })
-      .catch(err => {
-        el.innerHTML = "<p>Component not found.</p>";
-        console.error(err);
-      });
-  });
-}
-document.addEventListener('DOMContentLoaded', includeHTML);
-
-// Show mobile-left div on mobile
-function handleResize() {
-  const mobileLeft = document.querySelector('.mobile-left');
-  if (window.innerWidth <= 1040) {
-    mobileLeft.style.display = 'flex';
-  } else {
-    mobileLeft.style.display = 'none';
-  }
-}
-
-window.addEventListener('resize', handleResize);
-window.addEventListener('load', handleResize);
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Dropdown menu for desktop
-  const itemsData = [
-    {
-        "image_file": "mexico.png",
-        "title": "Mexico",
-        "token_count": 230
-    },
-    {
-        "image_file": "mexico.png",
-        "title": "Thailand",
-        "token_count": 60
-    },
-    {
-        "image_file": "mexico.png",
-        "title": "Italy",
-        "token_count": 45
+    
+    try {
+      const res = await fetch(file);
+      if (!res.ok) throw new Error(`Failed to fetch ${file}`);
+      
+      const data = await res.text();
+      el.innerHTML = data;
+    } catch (err) {
+      el.innerHTML = "<p>Component not found. Please try again later.</p>";
+      console.error(err);
     }
-  ];
+  }
 
+  // Sample data for menu items
+  const res = await fetch('../public/menu-tokens.json');
+  if (!res.ok) {
+    console.error('Failed to fetch menu items');
+    return;
+  }
+  const itemsData = await res.json();
+  // Function to render grid items
   function renderGrid(items) {
-    const gridContainer = document.getElementById('menuBody');
+    const gridContainer = document.getElementById('menuGrid');
 
     items.forEach(item => {
         const gridItem = document.createElement('div');
@@ -75,4 +47,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Call function to render grid
   renderGrid(itemsData);
-});
+
+  const tokensNavItem = document.getElementById('tokensNavItem');
+const dropdown = document.getElementById('tokensDropdown');
+
+if (tokensNavItem && dropdown) {
+  let hideTimeout;
+
+  const show = () => {
+    clearTimeout(hideTimeout);
+    dropdown.classList.add('show');
+  };
+
+  const hide = () => {
+    hideTimeout = setTimeout(() => {
+      if (
+        !tokensNavItem.matches(':hover') &&
+        !dropdown.matches(':hover')
+      ) {
+        dropdown.classList.remove('show');
+      }
+    }, 100);
+  };
+
+  tokensNavItem.addEventListener('mouseenter', show);
+  tokensNavItem.addEventListener('mouseleave', hide);
+  dropdown.addEventListener('mouseenter', show);
+  dropdown.addEventListener('mouseleave', hide);
+}
+}
+
+document.addEventListener('DOMContentLoaded', includeHTML);
+
+// Show mobile-left div on mobile
+function handleResize() {
+  const mobileLeft = document.querySelector('.mobile-left');
+  if (window.innerWidth <= 1040) {
+    mobileLeft.style.display = 'flex';
+  } else {
+    mobileLeft.style.display = 'none';
+  }
+}
+
+window.addEventListener('resize', handleResize);
+window.addEventListener('load', handleResize);
+
+
