@@ -17,7 +17,7 @@ async function includeHTML() {
   }
 
   // Sample data for menu items
-  const res = await fetch('../public/menu-tokens.json');
+  const res = await fetch('../menu-tokens.json');
   if (!res.ok) {
     console.error('Failed to fetch menu items');
     return;
@@ -33,7 +33,7 @@ async function includeHTML() {
         
         gridItem.innerHTML = `
           <a href="#">
-            <img src="../public/menu-tokens/${item.image_file}" alt="${item.image_file}">
+            <img src="../menu-tokens/${item.image_file}" alt="${item.image_file}">
             <span class="item-info">
               <span class="item__title">${item.title}</span>
               <span class="item__description">${item.token_count} Tokens</span>
