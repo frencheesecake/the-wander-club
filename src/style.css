@@ -297,6 +297,42 @@ nav .nav-container {
   object-fit: contain;
 }
 
+.hero-banner {
+  position: relative;
+  top: -10px;
+  margin: 0;
+  padding: 24px 64px;
+  color: var(--secondary-color);
+  background-color: #A4D9D1;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero-banner .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+}
+.hero-banner .item .group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-banner .item .group span {
+  font-size: 40px;
+  font-weight: 700;
+}
+.hero-banner .item p {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
 
 
 /* desktop to mobile Styles */
@@ -325,6 +361,26 @@ nav .nav-container {
     justify-content: space-between;
     padding: 20px 20px;
   }
+
+  .hero-banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 24px 64px;
+    gap: 64px;
+  }
+  .hero-banner .item {
+    flex: 1 1 45%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  .hero-banner .item:nth-child(3) {
+    flex-basis: 100%;
+    max-width: 100%;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 264px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -338,5 +394,16 @@ nav .nav-container {
 
   .bg-desktop {
     display: none;
+  }
+.hero-banner {
+  justify-content: space-around;
+  flex-direction: column;
+}
+  .hero-banner .item,
+  .hero-banner .item:nth-child(3) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 198px;
   }
 }
